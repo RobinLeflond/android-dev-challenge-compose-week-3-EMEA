@@ -17,13 +17,9 @@ package com.example.androiddevchallenge.ui
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -32,36 +28,29 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.androiddevchallenge.R
-import com.example.androiddevchallenge.ui.theme.Elevations
-import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
 fun FavoriteItem(text: String, @DrawableRes image: Int) {
     Surface(
         shape = MaterialTheme.shapes.small,
-        modifier = Modifier
-            .size(192.dp, 56.dp),
+        modifier = Modifier.size(192.dp, 56.dp),
         color = MaterialTheme.colors.surface
     ) {
-        Row (verticalAlignment = Alignment.CenterVertically){
+        Row(verticalAlignment = Alignment.CenterVertically) {
             Image(
                 painterResource(image),
                 contentDescription = null,
                 modifier = Modifier.size(56.dp),
                 contentScale = ContentScale.Crop,
 
-                )
+            )
             Text(
                 text,
                 style = MaterialTheme.typography.h3,
                 color = MaterialTheme.colors.onSurface,
-                modifier = Modifier
-                    .padding(start = 8.dp)
+                modifier = Modifier.padding(start = 8.dp)
             )
         }
-
     }
 }

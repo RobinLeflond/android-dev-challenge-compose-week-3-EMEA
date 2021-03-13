@@ -20,7 +20,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.R
 
@@ -33,7 +32,6 @@ val latoFamily = FontFamily(
     Font(R.font.lato_regular, FontWeight.Normal),
     Font(R.font.lato_bold, FontWeight.Bold)
 )
-
 
 val typography = Typography(
     h1 = TextStyle(

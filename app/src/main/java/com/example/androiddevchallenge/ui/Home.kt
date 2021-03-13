@@ -153,7 +153,6 @@ fun Home() {
                     }
                 }
 
-
             ) {
                 Column(
                     modifier = Modifier
@@ -241,7 +240,6 @@ fun Home() {
                                 Spacer(modifier = Modifier.size(8.dp))
                             }
                         }
-
                     }
                 }
             }
@@ -266,7 +264,6 @@ fun Home() {
                         colorFilter = ColorFilter.tint(MaterialTheme.colors.onPrimary)
 
                     )
-
                 }
             }
         }

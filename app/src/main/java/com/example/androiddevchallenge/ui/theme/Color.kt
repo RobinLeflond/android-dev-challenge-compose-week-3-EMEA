@@ -26,12 +26,7 @@ object Colors {
     val taupe800 = Color(0xFF655454)
     val gray800 = Color(0xCC333333)
 
-
     val rust300 = Color(0xFFE1AFAF)
     val white150 = Color(0x26FFFFFF)
     val white800 = Color(0xCCFFFFFF)
-
-
-
-
 }

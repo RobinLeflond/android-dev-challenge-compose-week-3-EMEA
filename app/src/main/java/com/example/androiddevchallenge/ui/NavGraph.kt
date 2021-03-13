@@ -26,7 +26,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 
-
 object MainDestinations {
     const val WELCOME_ROUTE = "welcome"
     const val LOGIN_ROUTE = "login"

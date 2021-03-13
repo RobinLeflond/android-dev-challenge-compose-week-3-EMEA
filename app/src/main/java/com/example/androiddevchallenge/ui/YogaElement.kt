@@ -52,6 +52,5 @@ fun YogaElement(title: String, @DrawableRes image: Int) {
             color = MaterialTheme.colors.onSurface,
             modifier = Modifier.paddingFromBaseline(top = 24.dp),
         )
-
     }
 }
