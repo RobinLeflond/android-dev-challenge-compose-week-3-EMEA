@@ -21,7 +21,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -156,9 +155,8 @@ fun Home() {
             ) {
                 Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxHeight()
-                        .padding(start = 16.dp, end = 16.dp),
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState()),
                 ) {
                     TextField(
                         "",
@@ -179,7 +177,7 @@ fun Home() {
                         },
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(top = 16.dp),
+                            .padding(top = 16.dp, start = 16.dp, end = 16.dp),
                         colors = TextFieldDefaults.textFieldColors(
                             backgroundColor = MaterialTheme.colors.onPrimary,
                             cursorColor = MaterialTheme.colors.onSurface
@@ -187,58 +185,80 @@ fun Home() {
 
                     )
 
-                    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                        Text(
-                            "FAVORITE COLLECTIONS",
-                            style = MaterialTheme.typography.h2,
-                            color = MaterialTheme.colors.onBackground,
-                            modifier = Modifier.paddingFromBaseline(top = 40.dp),
-                        )
+                    Text(
+                        "FAVORITE COLLECTIONS",
+                        style = MaterialTheme.typography.h2,
+                        color = MaterialTheme.colors.onBackground,
+                        modifier = Modifier
+                            .paddingFromBaseline(top = 40.dp)
+                            .padding(start = 16.dp),
+                    )
 
-                        LazyRow(modifier = Modifier) {
-                            items(favoriteCollections.size) {
-                                if (it < 3)
-                                    Column {
-                                        Spacer(modifier = Modifier.size(8.dp))
-                                        val item1 = favoriteCollections[it]
-                                        FavoriteItem(item1.title, item1.image)
-                                        Spacer(modifier = Modifier.size(8.dp))
-                                        val item2 = favoriteCollections[it + 1]
-                                        FavoriteItem(item2.title, item2.image)
-                                        Spacer(modifier = Modifier.size(8.dp))
-                                    }
-                                Spacer(modifier = Modifier.size(8.dp))
-                            }
+                    LazyRow(modifier = Modifier) {
+                        item {
+                            Spacer(modifier = Modifier.size(16.dp))
                         }
-
-                        Text(
-                            "ALIGN YOUR BODY",
-                            style = MaterialTheme.typography.h2,
-                            color = MaterialTheme.colors.onBackground,
-                            modifier = Modifier.paddingFromBaseline(top = 40.dp),
-                        )
-                        Spacer(modifier = Modifier.size(8.dp))
-
-                        LazyRow(modifier = Modifier) {
-                            items(alignYourBody) { item ->
-                                YogaElement(item.title, item.image)
-                                Spacer(modifier = Modifier.size(8.dp))
-                            }
+                        items(favoriteCollections.size) {
+                            if (it < 3)
+                                Column {
+                                    Spacer(modifier = Modifier.size(8.dp))
+                                    val item1 = favoriteCollections[it]
+                                    FavoriteItem(item1.title, item1.image)
+                                    Spacer(modifier = Modifier.size(8.dp))
+                                    val item2 = favoriteCollections[it + 1]
+                                    FavoriteItem(item2.title, item2.image)
+                                    Spacer(modifier = Modifier.size(8.dp))
+                                }
+                            Spacer(modifier = Modifier.size(8.dp))
                         }
+                        item {
+                            Spacer(modifier = Modifier.size(16.dp))
+                        }
+                    }
 
-                        Text(
-                            "ALIGN YOUR MIND",
-                            style = MaterialTheme.typography.h2,
-                            color = MaterialTheme.colors.onBackground,
-                            modifier = Modifier.paddingFromBaseline(top = 40.dp),
-                        )
-                        Spacer(modifier = Modifier.size(8.dp))
+                    Text(
+                        "ALIGN YOUR BODY",
+                        style = MaterialTheme.typography.h2,
+                        color = MaterialTheme.colors.onBackground,
+                        modifier = Modifier
+                            .paddingFromBaseline(top = 40.dp)
+                            .padding(start = 16.dp),
+                    )
+                    Spacer(modifier = Modifier.size(8.dp))
 
-                        LazyRow(modifier = Modifier) {
-                            items(alignYourMind) { item ->
-                                YogaElement(item.title, item.image)
-                                Spacer(modifier = Modifier.size(8.dp))
-                            }
+                    LazyRow(modifier = Modifier) {
+                        item {
+                            Spacer(modifier = Modifier.size(16.dp))
+                        }
+                        items(alignYourBody) { item ->
+                            YogaElement(item.title, item.image)
+                            Spacer(modifier = Modifier.size(8.dp))
+                        }
+                        item {
+                            Spacer(modifier = Modifier.size(16.dp))
+                        }
+                    }
+
+                    Text(
+                        "ALIGN YOUR MIND",
+                        style = MaterialTheme.typography.h2,
+                        color = MaterialTheme.colors.onBackground,
+                        modifier = Modifier
+                            .paddingFromBaseline(top = 40.dp)
+                            .padding(start = 16.dp),
+                    )
+                    Spacer(modifier = Modifier.size(8.dp))
+
+                    LazyRow(modifier = Modifier) {
+                        item {
+                            Spacer(modifier = Modifier.size(16.dp))
+                        }
+                        items(alignYourMind) { item ->
+                            YogaElement(item.title, item.image)
+                            Spacer(modifier = Modifier.size(8.dp))
+                        }
+                        item {
+                            Spacer(modifier = Modifier.size(16.dp))
                         }
                     }
                 }
@@ -258,11 +278,10 @@ fun Home() {
                     color = MaterialTheme.colors.primary,
                 ) {
                     Image(
-                        modifier = Modifier.size(12.dp),
+                        modifier = Modifier.size(24.dp),
                         imageVector = Icons.Filled.PlayArrow,
                         contentDescription = null,
-                        colorFilter = ColorFilter.tint(MaterialTheme.colors.onPrimary)
-
+                        colorFilter = ColorFilter.tint(MaterialTheme.colors.onPrimary),
                     )
                 }
             }
