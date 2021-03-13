@@ -202,10 +202,10 @@ fun Home() {
                             if (it < 3)
                                 Column {
                                     Spacer(modifier = Modifier.size(8.dp))
-                                    val item1 = favoriteCollections[it]
+                                    val item1 = favoriteCollections[it * 2]
                                     FavoriteItem(item1.title, item1.image)
                                     Spacer(modifier = Modifier.size(8.dp))
-                                    val item2 = favoriteCollections[it + 1]
+                                    val item2 = favoriteCollections[it * 2 + 1]
                                     FavoriteItem(item2.title, item2.image)
                                     Spacer(modifier = Modifier.size(8.dp))
                                 }
