@@ -25,9 +25,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
-import com.example.androiddevchallenge.ui.Home.Home
-import com.example.androiddevchallenge.ui.Login.LogIn
-import com.example.androiddevchallenge.ui.Welcome.Welcome
 
 
 object MainDestinations {
